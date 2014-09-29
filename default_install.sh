@@ -22,7 +22,7 @@ bash scripts/build
 
 cd www
 
-drush si -y drupalhub --account-name=$ADMIN_USERNAME --account-pass=$ADMIN_PASSWORD --account-mail=$ADMIN_EMAIL --db-url=mysql://$MYSQL_USERNAME:$MYSQL_PASSWORD@$MYSQL_HOST/$MYSQL_DB_NAME --uri=$BASE_DOMAIN_URL
+drush si -y cod --account-name=$ADMIN_USERNAME --account-pass=$ADMIN_PASSWORD --account-mail=$ADMIN_EMAIL --db-url=mysql://$MYSQL_USERNAME:$MYSQL_PASSWORD@$MYSQL_HOST/$MYSQL_DB_NAME --uri=$BASE_DOMAIN_URL
 
 # These commands migrates dummy content and is used for development and testing. Comment out both lines if you wish to have a clean drupalhub installation.
 # drush mi --all --user=1
