@@ -1,0 +1,7 @@
+cod_support/*
+cod/themes/contrib
+cod/libraries/*
+cod/modules/contrib
+cod/modules/cod_support
+www/*
+.idea

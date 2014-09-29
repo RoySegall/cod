@@ -46,6 +46,11 @@ cd $ROOT
   done
 )
 
+# Check if we need to clone the COD support library.
+if [ ! -d "cod_support" ]; then
+  git clone --branch 7.x-1.x http://git.drupal.org/project/cod_support.git
+fi
+
 # Build the profile itself.
 (
   cd cod
@@ -72,6 +77,9 @@ cd $ROOT
   # Move the profile in place.
   ln -s ../../cod $BUILD_ROOT/www-build/profiles/cod
 
+  # Symlink the cod support to the modules folder.
+  ln -s ../../cod_support $BUILD_ROOT/www-build/profiles/cod/modules/cod_support
+
   # Fix permisions before deleting.
   chmod -R +w $BUILD_ROOT/$DOCROOT/sites/* || true
   rm -Rf $BUILD_ROOT/$DOCROOT || true
@@ -88,9 +96,4 @@ CUR_DIR=$(pwd)
     $DRUSH make --no-core --contrib-destination $CUR_DIR/$BUILD_ROOT/cod/os-ops.make .
     cd $CUR_DIR
   fi
-)
-
-# Copy unmakable contrib files
-(
-  cp -R temporary/* cod/modules/contrib/
 )
