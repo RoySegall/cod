@@ -4,5 +4,6 @@ cod/modules/contrib
 cod/modules/cod_support
 .idea
 www/*
-cod_support/*
+cod_support
+install.sh
 

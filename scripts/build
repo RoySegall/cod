@@ -78,7 +78,9 @@ fi
   ln -s ../../cod $BUILD_ROOT/www-build/profiles/cod
 
   # Symlink the cod support to the modules folder.
-  ln -s ../../cod_support $BUILD_ROOT/www-build/profiles/cod/modules/cod_support
+  if [ ! -d $BUILD_ROOT/www-build/profiles/cod/modules/cod_support ]; then
+    ln -s ../../cod_support $BUILD_ROOT/www-build/profiles/cod/modules/cod_support
+  fi
 
   # Fix permisions before deleting.
   chmod -R +w $BUILD_ROOT/$DOCROOT/sites/* || true
